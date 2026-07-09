@@ -1,0 +1,250 @@
+:root {
+  --purple: #46178f;
+  --purple-dark: #2b0f5c;
+  --red: #e21b3c;
+  --blue: #1368ce;
+  --yellow: #ffa602;
+  --green: #26890c;
+  --bg: #f7f5ff;
+  --surface: #ffffff;
+  --text: #2b2140;
+  --text-muted: #6b6380;
+  --border: #e3ddf5;
+  --shadow: 0 6px 20px rgba(70, 23, 143, 0.15);
+  --radius: 16px;
+  --sans: 'Segoe UI', system-ui, Roboto, sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1330;
+    --surface: #241a3f;
+    --text: #f1edff;
+    --text-muted: #b8adda;
+    --border: #3a2c5e;
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font: 16px/1.5 var(--sans);
+  color: var(--text);
+  background: linear-gradient(160deg, var(--purple) 0%, var(--purple-dark) 100%);
+  -webkit-font-smoothing: antialiased;
+  touch-action: manipulation;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 8px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+.app-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: 100svh;
+  box-shadow: var(--shadow);
+}
+
+.app-shell.wide {
+  max-width: 1080px;
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 16px;
+}
+
+.screen-center {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background: var(--purple);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.08s ease;
+  min-height: 56px;
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn.secondary {
+  background: var(--surface);
+  color: var(--purple);
+  border: 2px solid var(--purple);
+  box-shadow: none;
+}
+
+.btn.danger {
+  background: var(--red);
+}
+
+.btn.yellow {
+  background: var(--yellow);
+  color: #3a2600;
+}
+
+.btn.green {
+  background: var(--green);
+}
+
+.btn.block {
+  width: 100%;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+input[type='text'],
+input[type='number'] {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+input[type='text']:focus,
+input[type='number']:focus {
+  outline: none;
+  border-color: var(--purple);
+}
+
+.pin-display {
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--purple);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  border: 3px dashed var(--purple);
+}
+
+.text-muted {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.error-banner {
+  background: #ffe3e8;
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--purple);
+  color: #fff;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 5px solid var(--border);
+  border-top-color: var(--purple);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--purple);
+}
+
+.logo .bug {
+  color: var(--red);
+}
