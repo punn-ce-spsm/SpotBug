@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home.jsx';
 import Dashboard from './teacher/Dashboard.jsx';
 import QuizEditor from './teacher/QuizEditor.jsx';
@@ -8,7 +8,7 @@ import StudentEntry from './student/StudentEntry.jsx';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/teacher" element={<Dashboard />} />
@@ -17,6 +17,6 @@ export default function App() {
         <Route path="/host/:quizId" element={<HostSession />} />
         <Route path="/play" element={<StudentEntry />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
